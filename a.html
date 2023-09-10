@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>可编辑下拉框</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<td width='20%' id="engine"><span class="tt">发动机号:</span> <input
+        id="engineval" style="width: 100px;position:relative;z-index:998;" maxlength="9" type="text"
+        class="u-ipt" placeholder="发动机号" value="$!{engineno}" οnchange="fa2();"/>
+    <select class="u-select"
+            style="width: 112px;position:absolute;left:314px;top:33px;z-index:99;color: rgba(0,0,0,0);
+" id="engine2" onChange="showinput2(this.options[this.options.selectedIndex].value);">
+        <option value="1" style="color: #999999">1</option>
+        <option value="2" style="color: #999999">2</option>
+        <option value="3" style="color: #999999">3</option>
+    </select>
+</td>
+</body>
+</html>
+<script>
+    function showinput2(s){
+        $("#engineval").val(s);
+    }
+    function fa2(s){
+        $("#engine2").val("");
+    }
+</script>

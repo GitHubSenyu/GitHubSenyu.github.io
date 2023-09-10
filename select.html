@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body   onload="f()">
+    <a href="index.html">回到首页</a>
+    <table id="table" align="center" width="50%" border="2px">
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+        </tr>
+    </table>
+
+</body>
+</html>
+<script>
+    function f(){
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.open("GET","select",true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                   var  data =   xmlhttp.responseText;
+                  // alert(data)
+                //将data文本形式转换为JSON对象
+                var data_json  = JSON.parse(data);
+                //获取table
+                var table = document.getElementById("table");
+                for (var i = 0;i<data_json.length;i++){
+                    //取id和name
+                    var text_id = document.createTextNode(data_json[i].id);
+                    var text_name = document.createTextNode(data_json[i].name);
+                    //创建td节点
+                    var td_id = document.createElement("td");
+                    var td_name = document.createElement("td");
+                    //创建tr节点
+                    var tr = document.createElement("tr");
+                    //挂节点
+                    td_id.append(text_id);
+                    td_name.append(text_name);
+                    tr.append(td_id);
+                    tr.append(td_name);
+                    table.append(tr);
+
+
+                }
+            }
+        }
+
+
+
+    }
+</script>

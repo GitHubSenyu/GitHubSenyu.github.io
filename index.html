@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>森屿的小网站</title>
+</head>
+<style>
+    .all{
+        position:absolute ;
+        margin:auto;
+        width: 1488px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .top-font{
+        display: inline;
+        z-index: 4;
+        position: absolute;
+        margin-left: 300px;
+        margin-top: 180px;
+    }
+    .b{
+        font-size: 40px;
+    }
+    .a{
+        font-size: 20px;
+    }
+     a:link{color: black}
+     a:visited{color: darkgrey}
+     a:hover{color: deeppink}
+     a:active{color: darkorchid}
+    .slider {
+        width: 900px;
+        height: 440px;
+        overflow: hidden;
+    }
+    .slider-wrapper {
+        width: 5400px;
+        height: 280px;
+        display: flex;
+        transition: transform 1s ease;
+    }
+    .slider-wrapper img {
+        width: 900px;
+        height: 440px;
+    }
+</style>
+<body >
+<div class="all">
+    <!--最上层的底层框-->
+    <div style="position: absolute;top: 0;left: 0;width: 100%;height: 50px;
+                    background: aliceblue;z-index: -1" ></div>
+    <!--最上层汉字+链接-->
+    <a href="index.html" ><div style="position: absolute;margin-left: 77px;
+                    margin-top: 15px;;font-size: 20px" >森屿</div></a>
+    <!--logo图片-->
+    <img src="logo.png" style="position: absolute;margin-left: 77px;
+                    margin-top: 50px;width: 100px;height: 100px;z-index:1">
+    <div class="top-font">
+        <a class="a" href="微信二维码.png" style="text-decoration: none" >想成功</a>
+        <a class="a" href="index.html" style="text-decoration: none">先发疯</a>
+        <a class="a" href="index.html" style="text-decoration: none">不顾一切向钱冲</a>
+        <a class="a" href="index.html" style="text-decoration: none">拼一次</a>
+        <a class="a" href="index.html" style="text-decoration: none">富三代</a>
+    </div>
+    <!--搜索框-->
+    <div  style="position: absolute;margin-top: 88px;margin-left: 650px;z-index: 0">
+        <a style="text-decoration: none ;color: black" >搜索：</a>
+        <input id="appName" type="text" list="appNamelist" style="padding:0.5em;border-radius:10px;">
+        <datalist id="appNamelist">
+            <option>WeChat(微信)</option>
+            <option>QQ</option>
+            <option>Google Talk</option>
+            <option>Twitter</option>
+            <option>Facekbook</option>
+        </datalist>
+    </div>
+    <a href="微信二维码.png" target="_blank"><img src="微信.png" style="position: absolute;margin-left: 1150px;margin-top: 77px"></a>
+    <div style="position: absolute;top: 150px;left: 0;
+         width: 100%;height: 100px ;background: lavender;
+         object-fit:cover;z-index:0"></div>
+
+    <table align="center" border="2px" style="position: absolute; z-index: 2 ;top: 43%;left: 70%" >
+        <tr>
+            <td align="center" style="font-size: 40px;color: purple">学生信息</td>
+        </tr>
+        <tr>
+            <td><a class="b" href="select.html">查看学生</a></td>
+        </tr>
+        <tr>
+            <td><a class="b" href="insert.html">添加学生</a></td>
+        </tr>
+        <tr>
+            <td><a class="b" href="update.html">修改信息</a></td>
+        </tr>
+        <tr>
+            <td><a class="b" href="delete.html">删除信息</a></td>
+        </tr>
+    </table>
+
+
+    <div class="slider" style="position:absolute; margin-left:40px;margin-top: 20% ;z-index: -1" >
+        <div class="slider-wrapper">
+            <img src="img/4.jpeg">
+            <img src="img/5.jpeg">
+            <img src="img/6.jpeg">
+            <img src="img/7.jpeg">
+            <img src="img/8.jpeg">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    function slider() {
+        var wrapper = document.querySelector('.slider-wrapper');
+        var images = document.querySelectorAll('.slider-wrapper img');
+        var width = images[0].width;
+        var count = images.length;
+        var currentIndex = 0;
+        setInterval(function() {
+            currentIndex = (currentIndex + 1) % count;
+            wrapper.style.transform = 'translateX(-' + width * currentIndex + 'px)';
+        }, 2000);
+    }
+    slider();
+</script>
